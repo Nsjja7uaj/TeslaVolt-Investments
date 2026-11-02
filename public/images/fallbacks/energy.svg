@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" fill="none">
+  <defs>
+    <linearGradient id="background" x1="60" y1="20" x2="1470" y2="890" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#25323a"/>
+      <stop offset=".55" stop-color="#10191c"/>
+      <stop offset="1" stop-color="#080b0c"/>
+    </linearGradient>
+    <linearGradient id="panel" x1="495" y1="481" x2="1130" y2="718" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#59666a"/>
+      <stop offset="1" stop-color="#202b30"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#background)" d="M0 0h1600v900H0z"/>
+  <circle cx="1195" cy="220" r="100" fill="#d2bd8e" fill-opacity=".78"/>
+  <circle cx="1195" cy="220" r="156" stroke="#d2bd8e" stroke-opacity=".2" stroke-width="2"/>
+  <path fill="#172022" d="M0 586 330 455l285 131 311-172 310 149 364-124v461H0V586Z"/>
+  <path fill="url(#panel)" stroke="#b3c2c2" stroke-opacity=".58" stroke-width="4" d="m260 630 507-191 587 183-504 210-590-202Z"/>
+  <path stroke="#a9c2ca" stroke-opacity=".62" stroke-width="4" d="m382 672 502-203m-393 246 499-205m-379 247 497-208m-260-181 6 320m155-268 9 202m159-152 9 94"/>
+  <path fill="#c5ac78" fill-opacity=".35" d="M0 820h1600v80H0z"/>
+</svg>

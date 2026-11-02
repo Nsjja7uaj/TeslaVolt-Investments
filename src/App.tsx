@@ -6,6 +6,7 @@ import {
   ArrowRight,
   ArrowUpRight,
   BatteryCharging,
+  Cable,
   ChevronDown,
   ChevronLeft,
   ChevronRight,
@@ -18,9 +19,12 @@ import {
   Menu,
   MessageCircle,
   Minus,
+  Play,
   Plus,
+  Radio,
   ShieldCheck,
   Sparkles,
+  Sun,
   UsersRound,
   X,
   Zap,
@@ -56,16 +60,6 @@ type Vehicle = {
   officialUrl: string;
   specificationsNote?: string;
   accent: string;
-};
-
-type Opportunity = {
-  name: string;
-  type: string;
-  minimum: string;
-  term: string;
-  target: string;
-  progress: number;
-  image: string;
 };
 
 const commonsCredit = (
@@ -113,11 +107,6 @@ const vehicles: Vehicle[] = [
       "Available dual-motor all-wheel drive; 1.99 seconds to 60 mph is Tesla's stated Plaid figure with rollout subtracted.",
     gallery: [
       {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Main-Hero-Desktop",
-        alt: "Tesla Model S official exterior image",
-        caption: "Model S exterior",
-      },
-      {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/2021_Tesla_Model_S_P2_Long_Range_front_right_view.jpg/1920px-2021_Tesla_Model_S_P2_Long_Range_front_right_view.jpg",
         alt: "2021 Tesla Model S Long Range front three-quarter view",
         caption: "2021 Long Range · front three-quarter",
@@ -146,11 +135,6 @@ const vehicles: Vehicle[] = [
         alt: "Tesla Model S rear cargo area with the rear seats folded",
         caption: "Model S · rear cargo area",
         credit: commonsCredit("Resized Tesla Model S rear NAIAS 2012.jpg", "Autoviva, uploaded by TM", "CC BY-SA 2.0"),
-      },
-      {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-S-Interior-Desktop",
-        alt: "Tesla Model S cabin and dashboard",
-        caption: "Model S cabin and dashboard",
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/The_interior_of_TESLA_MODEL_S_P100D.jpg/1920px-The_interior_of_TESLA_MODEL_S_P100D.jpg",
@@ -192,9 +176,10 @@ const vehicles: Vehicle[] = [
       "Available rear-wheel and dual-motor all-wheel-drive configurations; the acceleration figure shown is for a selected Performance configuration.",
     gallery: [
       {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-3-Performance-Hero-Desktop",
-        alt: "Tesla Model 3 Performance official exterior image",
-        caption: "Model 3 Performance exterior",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/69/Tesla_Model_3_%27Highland%27_%282024%29.jpg/1920px-Tesla_Model_3_%27Highland%27_%282024%29.jpg",
+        alt: "2024 Tesla Model 3 Highland beside an earlier Model 3",
+        caption: "Model 3 Highland · 2024 exterior",
+        credit: commonsCredit("Tesla Model 3 'Highland' (2024).jpg", "Mliu92", "CC BY-SA 4.0"),
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ed/Tesla_Model_3_%282023%29_1X7A1678.jpg/1920px-Tesla_Model_3_%282023%29_1X7A1678.jpg",
@@ -213,11 +198,6 @@ const vehicles: Vehicle[] = [
         alt: "Tesla Model 3 displayed at Autofrühling Ulm in 2023",
         caption: "2023 Model 3 · exterior detail",
         credit: commonsCredit("Tesla Model 3 (2023) Autofrühling Ulm IMG 9282.jpg", "Alexander-93", "CC BY-SA 4.0"),
-      },
-      {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-3-Performance-Interior-Desktop",
-        alt: "Tesla Model 3 cabin and center touchscreen",
-        caption: "Model 3 cabin and center touchscreen",
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/93/Tesla_Model_3_RWD_Facelift_-_interior_view.jpg/1920px-Tesla_Model_3_RWD_Facelift_-_interior_view.jpg",
@@ -277,9 +257,10 @@ const vehicles: Vehicle[] = [
       "Available dual-motor all-wheel drive; the acceleration figure shown is for a selected Plaid configuration.",
     gallery: [
       {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-X-Main-Hero-Desktop",
-        alt: "Tesla Model X official exterior image",
-        caption: "Model X exterior",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Tesla_Model_X_100D_1X7A6736.jpg/1920px-Tesla_Model_X_100D_1X7A6736.jpg",
+        alt: "Tesla Model X 100D displayed at Retro Classics in 2023",
+        caption: "Model X 100D · 2023 display",
+        credit: commonsCredit("Tesla Model X 100D 1X7A6736.jpg", "Alexander Migl", "CC BY-SA 4.0"),
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fe/Tesla_Model_X_Plaid_Front_3.jpg/1920px-Tesla_Model_X_Plaid_Front_3.jpg",
@@ -292,17 +273,6 @@ const vehicles: Vehicle[] = [
         alt: "Tesla Model X Plaid rear exterior view",
         caption: "Model X Plaid · rear view",
         credit: commonsCredit("Tesla Model X Plaid Back.jpg", "Mpelas199", "CC0"),
-      },
-      {
-        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c6/Tesla_Model_X_100D_1X7A6736.jpg/1920px-Tesla_Model_X_100D_1X7A6736.jpg",
-        alt: "Tesla Model X 100D displayed at Retro Classics in 2023",
-        caption: "Model X 100D · 2023 display",
-        credit: commonsCredit("Tesla Model X 100D 1X7A6736.jpg", "Alexander Migl", "CC BY-SA 4.0"),
-      },
-      {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-X-Interior-Desktop",
-        alt: "Tesla Model X cabin and dashboard",
-        caption: "Model X cabin and dashboard",
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0f/Tesla_Model_X_Plaid_Interior.jpg/1920px-Tesla_Model_X_Plaid_Interior.jpg",
@@ -350,9 +320,10 @@ const vehicles: Vehicle[] = [
       "Available rear-wheel and dual-motor all-wheel-drive configurations; acceleration depends on the selected trim.",
     gallery: [
       {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Main-Hero-Desktop-NA",
-        alt: "Tesla Model Y official exterior image",
-        caption: "Model Y exterior",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Tesla_Model_Y_2025_at_Santana_Row_dllu_02.jpg/1920px-Tesla_Model_Y_2025_at_Santana_Row_dllu_02.jpg",
+        alt: "Refreshed 2025 Tesla Model Y at Santana Row",
+        caption: "2025 refreshed Model Y · exterior",
+        credit: commonsCredit("Tesla Model Y 2025 at Santana Row dllu 02.jpg", "Dllu", "CC BY-SA 4.0"),
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Tesla_Model_Y_Standard_front_view_dllu.jpg/1920px-Tesla_Model_Y_Standard_front_view_dllu.jpg",
@@ -361,21 +332,10 @@ const vehicles: Vehicle[] = [
         credit: commonsCredit("Tesla Model Y Standard front view dllu.jpg", "Dllu", "CC BY-SA 4.0"),
       },
       {
-        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e2/Tesla_Model_Y_2025_at_Santana_Row_dllu_02.jpg/1920px-Tesla_Model_Y_2025_at_Santana_Row_dllu_02.jpg",
-        alt: "Refreshed 2025 Tesla Model Y at Santana Row",
-        caption: "2025 refreshed Model Y · exterior",
-        credit: commonsCredit("Tesla Model Y 2025 at Santana Row dllu 02.jpg", "Dllu", "CC BY-SA 4.0"),
-      },
-      {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/Tesla_Model_Y_%282025%29_DSC_8297.jpg/1920px-Tesla_Model_Y_%282025%29_DSC_8297.jpg",
         alt: "2025 Tesla Model Y exterior in Böblingen",
         caption: "2025 Model Y · exterior detail",
         credit: commonsCredit("Tesla Model Y (2025) DSC 8297.jpg", "Alexander Migl", "CC BY-SA 4.0"),
-      },
-      {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Model-Y-Interior-Desktop",
-        alt: "Tesla Model Y cabin and center touchscreen",
-        caption: "Model Y cabin and center touchscreen",
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/5/54/Tesla_Model_Y_2025_interior.jpg/1920px-Tesla_Model_Y_2025_interior.jpg",
@@ -423,9 +383,10 @@ const vehicles: Vehicle[] = [
       "Available all-wheel drive; the acceleration figure shown is Tesla's stated Cyberbeast figure and is configuration-dependent.",
     gallery: [
       {
-        image: "https://digitalassets.tesla.com/tesla-contents/image/upload/f_auto,q_auto/Cybertruck-Main-Hero-Desktop",
-        alt: "Tesla Cybertruck official exterior image",
-        caption: "Cybertruck exterior",
+        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Tesla_Cybertruck_%282024%29.jpg/1920px-Tesla_Cybertruck_%282024%29.jpg",
+        alt: "Tesla Cybertruck displayed in 2024",
+        caption: "Cybertruck · 2024 exterior",
+        credit: commonsCredit("Tesla Cybertruck (2024).jpg", "Amaury Laporte", "CC BY 2.0"),
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b6/2024_Tesla_Cybertruck_Foundation_Series_IMG_0634.jpg/1920px-2024_Tesla_Cybertruck_Foundation_Series_IMG_0634.jpg",
@@ -444,12 +405,6 @@ const vehicles: Vehicle[] = [
         alt: "2024 Tesla Cybertruck Foundation Series rear-side view",
         caption: "2024 Foundation Series · rear-side",
         credit: commonsCredit("2024 Tesla Cybertruck Foundation Series IMG 0642.jpg", "Alexander-93", "CC BY-SA 4.0"),
-      },
-      {
-        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/Tesla_Cybertruck_%282024%29.jpg/1920px-Tesla_Cybertruck_%282024%29.jpg",
-        alt: "Tesla Cybertruck displayed in 2024",
-        caption: "Cybertruck · 2024 exterior",
-        credit: commonsCredit("Tesla Cybertruck (2024).jpg", "Amaury Laporte", "CC BY 2.0"),
       },
       {
         image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c8/Tesla_Cybertruck_-_Interior_-_Tesla_Store_Athens_2024.jpg/1920px-Tesla_Cybertruck_-_Interior_-_Tesla_Store_Athens_2024.jpg",
@@ -479,7 +434,7 @@ const vehicles: Vehicle[] = [
     name: "Tesla Roadster",
     category: "Announced next-generation electric sports car",
     description:
-      "Tesla has announced a next-generation Roadster, but it is not represented here as a production vehicle. The available photographs show the announced prototype, not a confirmed final design.",
+      "Tesla has announced a next-generation Roadster, but it is not represented here as a production vehicle. Official Tesla video is embedded below; a verified license for standalone Roadster still images was not found.",
     range: "Not confirmed",
     acceleration: "Not confirmed",
     charging: "Not confirmed",
@@ -495,20 +450,7 @@ const vehicles: Vehicle[] = [
       "Production cargo or storage layout has not been confirmed.",
     performanceDetails:
       "No confirmed production range, acceleration, power, or charging specifications are available here.",
-    gallery: [
-      {
-        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3f/Tesla_roadster_2020_prototype.jpg/1920px-Tesla_roadster_2020_prototype.jpg",
-        alt: "Tesla next-generation Roadster prototype unveiled in 2017",
-        caption: "Announced Roadster · 2017 prototype",
-        credit: commonsCredit("Tesla roadster 2020 prototype.jpg", "Smnt", "CC BY-SA 4.0"),
-      },
-      {
-        image: "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c4/Tesla_Roadster_2.0_%2847619421652%29.jpg/1920px-Tesla_Roadster_2.0_%2847619421652%29.jpg",
-        alt: "Tesla Roadster 2.0 prototype at Tesla headquarters",
-        caption: "Roadster 2.0 · prototype exterior",
-        credit: commonsCredit("Tesla Roadster 2.0 (47619421652).jpg", "Steve Jurvetson", "CC BY 2.0"),
-      },
-    ],
+    gallery: [],
     officialUrl: "https://www.tesla.com/roadster",
     specificationsNote:
       "Tesla has not confirmed final production specifications, availability, or pricing. Earlier announced targets are not treated here as confirmed production figures.",
@@ -516,36 +458,36 @@ const vehicles: Vehicle[] = [
   },
 ];
 
-const opportunities: Opportunity[] = [
+const energyProducts = [
   {
-    name: "Volt Mobility Fund I",
-    type: "EV infrastructure",
-    minimum: "$5,000",
-    term: "36 months",
-    target: "8–12%*",
-    progress: 68,
-    image:
-      "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1000&q=80",
+    name: "Solar panels",
+    category: "GENERATE",
+    alt: "Solar panels in a rooftop renewable energy installation",
+    description:
+      "Explore rooftop solar options and learn what questions to ask when planning a home energy system.",
+    image: "/images/commons/Rooftop_Solar_Panels_3KW.jpg",
+    credit: commonsCredit("Rooftop Solar Panels 3KW.jpg", "Dr. Chinchu C.", "CC BY 4.0"),
+    icon: Sun,
   },
   {
-    name: "Next Mile Charging",
-    type: "Charging network",
-    minimum: "$2,500",
-    term: "24 months",
-    target: "7–10%*",
-    progress: 42,
-    image:
-      "https://images.unsplash.com/photo-1466611653911-95081537e5b7?auto=format&fit=crop&w=1000&q=80",
+    name: "Powerwall",
+    category: "STORE",
+    alt: "Home energy storage in a clean, modern energy setting",
+    description:
+      "Discover home battery storage and how a connected energy system may fit your household.",
+    image: "/images/commons/TeslaPowerwall2-2.jpg",
+    credit: commonsCredit("TeslaPowerwall2-2.jpg", "Raysonho @ Open Grid Scheduler / Grid Engine", "CC0"),
+    icon: BatteryCharging,
   },
   {
-    name: "Clean Grid Notes",
-    type: "Renewable energy",
-    minimum: "$1,000",
-    term: "18 months",
-    target: "6–9%*",
-    progress: 84,
-    image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1000&q=80",
+    name: "Charging solutions",
+    category: "CHARGE",
+    alt: "Electric vehicle connected to a charging station",
+    description:
+      "Compare home and destination charging considerations for your vehicle and location.",
+    image: "/images/commons/Tesla_Supercharger_Inyokern_California_2026_dllu.jpg",
+    credit: commonsCredit("Tesla Supercharger Inyokern California 2026 dllu.jpg", "Daniel Lu (User:dllu)", "CC BY-SA 4.0"),
+    icon: Cable,
   },
 ];
 
@@ -581,10 +523,130 @@ declare global {
 const chaportAppId =
   import.meta.env.VITE_CHAPORT_APP_ID?.trim() || "6ae63163fd3025974d40d8db";
 
+const vehicleImageFallback = "/images/fallbacks/vehicle.svg";
+const energyImageFallback = "/images/fallbacks/energy.svg";
+
+function localImageUrl(image: string) {
+  const thumbName = image.match(
+    /^https:\/\/thumb\.wikimedia\.org\/wikipedia\/commons\/thumb\/(?:[^/]+\/){3}([^/]+)$/,
+  )?.[1];
+  if (!thumbName) return image;
+
+  const fileName = decodeURIComponent(thumbName).replace(/^\d+px-/, "");
+  return `/images/commons/${encodeURIComponent(fileName)}`;
+}
+
+function ImageWithFallback({
+  src,
+  alt,
+  fallback = vehicleImageFallback,
+  className,
+  loading = "lazy",
+}: {
+  src: string;
+  alt: string;
+  fallback?: string;
+  className?: string;
+  loading?: "eager" | "lazy";
+}) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => setFailed(false), [src]);
+
+  return (
+    <img
+      className={className}
+      src={failed ? fallback : src}
+      alt={alt}
+      loading={loading}
+      decoding="async"
+      onError={() => {
+        if (!failed) setFailed(true);
+      }}
+    />
+  );
+}
+
+function TeslaVoltMark({ size = 18 }: { size?: number }) {
+  return (
+    <svg
+      aria-hidden="true"
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.7"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M4.5 6h15M12 6v5.1M6.4 11.1 12 19l5.6-7.9M8.9 14.6h6.2" />
+    </svg>
+  );
+}
+
+function SelfDrivingMedia({ poster }: { poster: string }) {
+  const [videoUnavailable, setVideoUnavailable] = useState(false);
+  const videoUrl = import.meta.env.VITE_FSD_VIDEO_URL?.trim();
+
+  return (
+    <div className="self-driving-media">
+      {videoUrl && videoUnavailable ? (
+        <div className="self-driving-poster">
+          <ImageWithFallback
+            src={poster}
+            alt="Illustrative electric vehicle image shown because the configured video could not load"
+            fallback={vehicleImageFallback}
+          />
+          <span className="video-unavailable"><Play size={16} /> The configured video could not be loaded.</span>
+        </div>
+      ) : videoUrl ? (
+        <video
+          controls
+          playsInline
+          preload="metadata"
+          poster={poster}
+          aria-label="Full Self-Driving (Supervised) demonstration video"
+          onError={() => setVideoUnavailable(true)}
+        >
+          <source src={videoUrl} />
+          Your browser does not support this video.
+        </video>
+      ) : (
+        <OfficialVideoEmbed
+          videoId="TUDiG7PcLBs"
+          title="Full Self-Driving (Supervised) — official Tesla video"
+        />
+      )}
+    </div>
+  );
+}
+
+function OfficialVideoEmbed({
+  videoId,
+  title,
+}: {
+  videoId: string;
+  title: string;
+}) {
+  return (
+    <iframe
+      className="official-video-embed"
+      src={`https://www.youtube-nocookie.com/embed/${videoId}?rel=0`}
+      title={title}
+      loading="lazy"
+      referrerPolicy="strict-origin-when-cross-origin"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowFullScreen
+    />
+  );
+}
+
 function App() {
   const [page, setPage] = useState<Page>("home");
   const [authMode, setAuthMode] = useState<AuthMode>(null);
   const [selectedVehicle, setSelectedVehicle] = useState<Vehicle | null>(null);
+  const [orderProduct, setOrderProduct] = useState<string | null>(null);
   const [vehicleImageIndex, setVehicleImageIndex] = useState(0);
   const [chatStatus, setChatStatus] = useState<string | null>(null);
   const [preparedChatMessage, setPreparedChatMessage] = useState<string | null>(null);
@@ -620,14 +682,11 @@ function App() {
     document.head.appendChild(script);
   }, []);
 
-  const openSupportChat = (vehicleName?: string) => {
-    const preparedMessage = vehicleName
-      ? `Hello, I am interested in investing in the ${vehicleName}. Please provide more information.`
-      : null;
-    setPreparedChatMessage(preparedMessage);
+  const openSupportChat = (preparedMessage?: string) => {
+    setPreparedChatMessage(preparedMessage ?? null);
     setChatStatus(
       preparedMessage
-        ? "Chaport is opening. This prepared message has not been sent."
+        ? "Chaport is opening. Review the prepared enquiry, then send it yourself; it has not been sent."
         : null,
     );
 
@@ -636,7 +695,10 @@ function App() {
       return;
     }
 
-    if (!chaportAppId) return;
+    if (!chaportAppId) {
+      setChatStatus("Chaport is not configured. Please contact the site operator.");
+      return;
+    }
 
     if (window.chaport?.open) {
       window.chaport.open();
@@ -677,7 +739,7 @@ function App() {
         <Sparkles size={13} />
         <span>A concept platform for the next era of mobility</span>
         <span className="announcement-separator">·</span>
-        <button onClick={() => scrollTo("opportunities")}>Explore demos</button>
+        <button onClick={() => scrollTo("investment")}>Investment information</button>
       </div>
 
       <header className="site-header">
@@ -690,13 +752,16 @@ function App() {
           }}
           aria-label="TeslaVolt home"
         >
-          <span className="brand-mark"><Zap size={18} fill="currentColor" /></span>
+          <span className="brand-mark"><TeslaVoltMark /></span>
           <span>TESLA<span className="brand-light">VOLT</span></span>
         </button>
         <nav className="desktop-nav" aria-label="Main navigation">
           <button onClick={() => scrollTo("vehicles")}>Vehicles</button>
-          <button onClick={() => scrollTo("opportunities")}>Opportunities</button>
-          <button onClick={() => scrollTo("about")}>Our vision</button>
+          <button onClick={() => scrollTo("energy")}>Energy</button>
+          <button onClick={() => scrollTo("self-driving")}>Full Self-Driving</button>
+          <button onClick={() => scrollTo("about")}>About</button>
+          <button onClick={() => openSupportChat()}>Support</button>
+          <button onClick={() => scrollTo("investment")}>Investment</button>
         </nav>
         <div className="header-actions">
           <button className="login-link" onClick={() => openAuth("login")}>Log in</button>
@@ -716,8 +781,11 @@ function App() {
       {mobileMenuOpen && (
         <nav className="mobile-nav">
           <button onClick={() => scrollTo("vehicles")}>Vehicles</button>
-          <button onClick={() => scrollTo("opportunities")}>Opportunities</button>
-          <button onClick={() => scrollTo("about")}>Our vision</button>
+          <button onClick={() => scrollTo("energy")}>Energy</button>
+          <button onClick={() => scrollTo("self-driving")}>Full Self-Driving</button>
+          <button onClick={() => scrollTo("about")}>About</button>
+          <button onClick={() => scrollTo("investment")}>Investment</button>
+          <button onClick={() => { setMobileMenuOpen(false); openSupportChat(); }}>Customer support</button>
           <button onClick={() => openAuth("login")}>Log in</button>
           <button onClick={() => openAuth("register")}>Create an account <ArrowUpRight size={15} /></button>
         </nav>
@@ -731,7 +799,7 @@ function App() {
           onBack={() => {
             scrollTo("vehicles");
           }}
-          onInvest={(vehicleName) => openSupportChat(vehicleName)}
+          onOrder={() => setOrderProduct(selectedVehicle.name)}
         />
       ) : page === "home" ? (
         <HomePage
@@ -741,6 +809,7 @@ function App() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
           onInquire={() => openSupportChat()}
+          onOrder={(product) => setOrderProduct(product)}
           onRegister={() => openAuth("register")}
           onDashboard={enterDashboard}
           onAdmin={() => {
@@ -821,6 +890,16 @@ function App() {
           }}
         />
       )}
+      {orderProduct && (
+        <OrderModal
+          product={orderProduct}
+          onClose={() => setOrderProduct(null)}
+          onSubmit={(message) => {
+            setOrderProduct(null);
+            openSupportChat(message);
+          }}
+        />
+      )}
 
     </div>
   );
@@ -829,12 +908,14 @@ function App() {
 function HomePage({
   onVehicleSelect,
   onInquire,
+  onOrder,
   onRegister,
   onDashboard,
   onAdmin,
 }: {
   onVehicleSelect: (vehicle: Vehicle) => void;
   onInquire: () => void;
+  onOrder: (product: string) => void;
   onRegister: () => void;
   onDashboard: () => void;
   onAdmin: () => void;
@@ -842,7 +923,13 @@ function HomePage({
   return (
     <main>
       <section className="hero">
-        <div className="hero-image" />
+        <ImageWithFallback
+          className="hero-image"
+          src={localImageUrl(vehicles[0].gallery[0].image)}
+          alt="Tesla Model S Long Range in a front three-quarter view"
+          fallback={vehicleImageFallback}
+          loading="eager"
+        />
         <div className="hero-vignette" />
         <div className="hero-content">
           <div className="eyebrow"><span className="eyebrow-line" /> ELECTRIC. ELEVATED. EMPOWERED.</div>
@@ -852,15 +939,21 @@ function HomePage({
             <button className="button button-red" onClick={() => document.getElementById("vehicles")?.scrollIntoView({ behavior: "smooth" })}>
               Explore vehicles <ArrowRight size={16} />
             </button>
-            <button className="button button-outline" onClick={() => document.getElementById("opportunities")?.scrollIntoView({ behavior: "smooth" })}>
-              Explore opportunities <ArrowUpRight size={15} />
+            <button className="button button-outline" onClick={() => document.getElementById("investment")?.scrollIntoView({ behavior: "smooth" })}>
+              Investment information <ArrowUpRight size={15} />
             </button>
           </div>
           <div className="hero-caption"><span className="hero-caption-line" /> A concept for what's next</div>
         </div>
         <div className="hero-side-label"><span>01 — 06</span><span className="side-label-rule" /> THE ELECTRIC COLLECTION</div>
         <a className="hero-scroll" href="#vehicles" aria-label="Scroll to vehicles"><ArrowDown size={16} /></a>
-        <div className="hero-coordinates"><span>37°23'17.4"N</span><span>122°08'50.1"W</span></div>
+        {vehicles[0].gallery[0].credit && (
+          <div className="hero-image-credit">
+            Photo by <a href={vehicles[0].gallery[0].credit.url} target="_blank" rel="noreferrer">{vehicles[0].gallery[0].credit.label}</a>
+            {" · "}
+            <a href={vehicles[0].gallery[0].credit.licenseUrl} target="_blank" rel="noreferrer">{vehicles[0].gallery[0].credit.license}</a>
+          </div>
+        )}
       </section>
 
       <section className="trust-strip">
@@ -887,7 +980,20 @@ function HomePage({
               aria-label={`Explore ${vehicle.name}`}
               onClick={() => onVehicleSelect(vehicle)}
             >
-              <div className="vehicle-card-image" style={{ backgroundImage: `url("${vehicle.gallery[0].image}")` }}>
+              <div className="vehicle-card-image">
+                {vehicle.gallery[0] ? (
+                  <ImageWithFallback
+                    src={localImageUrl(vehicle.gallery[0].image)}
+                    alt={vehicle.gallery[0].alt}
+                    fallback={vehicleImageFallback}
+                    loading="eager"
+                  />
+                ) : (
+                  <div className="vehicle-card-no-image">
+                    <span>ROADSTER · OFFICIAL MEDIA</span>
+                    <strong>Explore Tesla video</strong>
+                  </div>
+                )}
                 <span className="vehicle-number">{vehicle.accent} / 06</span>
                 <span className="vehicle-open"><ArrowUpRight size={18} /></span>
                 <span className="vehicle-image-shade" />
@@ -895,6 +1001,11 @@ function HomePage({
                   <span>{vehicle.category}</span>
                   <strong>{vehicle.name}</strong>
                 </div>
+                {vehicle.gallery[0]?.credit && (
+                  <span className="vehicle-card-credit">
+                    Photo: {vehicle.gallery[0].credit.label} · {vehicle.gallery[0].credit.license}
+                  </span>
+                )}
               </div>
               <div className="vehicle-card-meta"><span>{vehicle.seating === "Not confirmed" ? "Planned vehicle" : vehicle.seating}</span><span>Explore Vehicle <ArrowRight size={14} /></span></div>
             </button>
@@ -903,54 +1014,104 @@ function HomePage({
         <div className="section-bottom-note"><span>01 — 06</span><span>Explore the all-electric collection</span><span className="note-line" /></div>
       </section>
 
+      <RoadsterShowcase
+        onOrder={() => onOrder("Tesla Roadster — registration of interest (not a reservation)")}
+        onUpdates={() => onOrder("Tesla Roadster — updates (no reservation)")}
+      />
+
+      <section className="self-driving-section" id="self-driving">
+        <SelfDrivingMedia poster={localImageUrl(vehicles[1].gallery[0].image)} />
+        <div className="self-driving-copy">
+          <div className="eyebrow"><span className="eyebrow-line" /> DRIVER-ASSISTANCE TECHNOLOGY</div>
+          <h2>THE FUTURE OF<br />DRIVING IS <span>HERE.</span></h2>
+          <p>Learn about Tesla's Full Self-Driving (Supervised) technology and its driver-assistance features. Availability and functionality vary by vehicle, region, software and conditions.</p>
+          <p className="supervision-disclaimer"><ShieldCheck size={17} /> Full Self-Driving (Supervised) requires active driver supervision. It does not make a vehicle fully autonomous, and the driver remains responsible for the vehicle at all times.</p>
+          <a className="button button-outline" href="https://www.tesla.com/fsd" target="_blank" rel="noreferrer">Explore Self-Driving <ArrowUpRight size={15} /></a>
+          <p className="official-media-note">
+            <a href="https://www.youtube.com/watch?v=TUDiG7PcLBs" target="_blank" rel="noreferrer">Official Tesla FSD (Supervised) video</a>. Available metadata does not verify every requested scene, including the complete city-intersection and passenger sequence.
+          </p>
+        </div>
+      </section>
+
+      <section className="section energy-section" id="energy">
+        <div className="section-heading">
+          <div>
+            <div className="eyebrow"><span className="eyebrow-line" /> HOME ENERGY</div>
+            <h2>Power your <span>everyday.</span></h2>
+          </div>
+          <p>Explore solar generation, home energy storage and charging. Product details and availability depend on your location.</p>
+        </div>
+        <div className="energy-grid">
+          {energyProducts.map((product) => {
+            const ProductIcon = product.icon;
+            return (
+              <article className="energy-card" key={product.name}>
+                <div className="energy-card-image">
+                  <ImageWithFallback
+                    src={product.image}
+                    alt={product.alt}
+                    fallback={energyImageFallback}
+                    className={`energy-product-image energy-product-${product.category.toLowerCase()}`}
+                  />
+                  <span className="energy-category"><ProductIcon size={14} /> {product.category}</span>
+                </div>
+                <div className="energy-card-copy">
+                  <h3>{product.name}</h3>
+                  <p>{product.description}</p>
+                  <button className="text-button" onClick={() => onOrder(product.name)}>
+                    Enquire about {product.name} <ArrowRight size={15} />
+                  </button>
+                  {product.credit && (
+                    <span className="energy-image-credit">
+                      Photo by <a href={product.credit.url} target="_blank" rel="noreferrer">{product.credit.label}</a>
+                      {" · "}
+                      <a href={product.credit.licenseUrl} target="_blank" rel="noreferrer">{product.credit.license}</a>
+                    </span>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+        <p className="energy-disclaimer">TeslaVolt is an independent information and enquiry experience. Product names belong to their respective owners; this website does not represent product availability, pricing, installation or an order confirmation.</p>
+      </section>
+
       <section className="manifesto" id="about">
-        <div className="manifesto-image" />
+        <ImageWithFallback
+          className="manifesto-image"
+          src="/images/energy/wind-turbines.jpg"
+          alt="Wind turbines generating renewable energy"
+          fallback={energyImageFallback}
+        />
         <div className="manifesto-overlay" />
         <div className="manifesto-content">
           <div className="eyebrow"><span className="eyebrow-line" /> A DIFFERENT KIND OF DRIVE</div>
           <h2>Progress isn't<br />a destination.<br /><span>It's a direction.</span></h2>
           <p>We believe the shift to electric is bigger than what we drive. It's a chance to rethink what moving forward looks like.</p>
-          <button className="text-button" onClick={() => document.getElementById("opportunities")?.scrollIntoView({ behavior: "smooth" })}>
+          <button className="text-button" onClick={() => document.getElementById("investment")?.scrollIntoView({ behavior: "smooth" })}>
             Discover our perspective <ArrowRight size={16} />
           </button>
         </div>
         <div className="manifesto-caption">THE FUTURE DOESN'T WAIT FOR GREEN LIGHTS.</div>
       </section>
 
-      <section className="section opportunity-section" id="opportunities">
+      <section className="section opportunity-section" id="investment">
         <div className="section-heading opportunity-heading">
           <div>
-            <div className="eyebrow"><span className="eyebrow-line" /> THE OPPORTUNITY</div>
-            <h2>Back what <span>moves us.</span></h2>
+            <div className="eyebrow"><span className="eyebrow-line" /> INVESTMENT INFORMATION</div>
+            <h2>A separate <span>conversation.</span></h2>
           </div>
-          <p>Explore demonstration-only opportunities inspired by the electric transition. Nothing shown is a real investment offer.</p>
+          <p>Vehicle and energy enquiries are not investment activity. No investment offering is configured on this website.</p>
         </div>
         <div className="demo-banner">
           <span className="demo-banner-icon"><CircleHelp size={17} /></span>
-          <span><strong>Demonstration only.</strong> These fictional examples are not genuine investment offers, Tesla products, or financial advice. TeslaVolt is not authorized, affiliated with, or endorsed by Tesla, Inc. No returns are promised.</span>
+          <span><strong>No investment service or offer is available here.</strong> The operating legal entity for TeslaVolt has not been provided for this website, so no investment products or company identity are represented. TeslaVolt is not affiliated with or endorsed by Tesla, Inc.</span>
         </div>
-        <div className="opportunity-grid">
-          {opportunities.map((opportunity) => (
-            <article className="opportunity-card" key={opportunity.name}>
-              <div className="opportunity-image" style={{ backgroundImage: `url("${opportunity.image}")` }}>
-                <span className="demo-tag"><span /> SAMPLE OPPORTUNITY</span>
-                <span className="opportunity-type">{opportunity.type}</span>
-              </div>
-              <div className="opportunity-content">
-                <h3>{opportunity.name}</h3>
-                <div className="opportunity-stats">
-                  <div><span>Illustrative target*</span><strong>{opportunity.target}</strong></div>
-                  <div><span>Example minimum</span><strong>{opportunity.minimum}</strong></div>
-                  <div><span>Example term</span><strong>{opportunity.term}</strong></div>
-                </div>
-                <div className="funding-label"><span>Sample allocation</span><span>{opportunity.progress}%</span></div>
-                <div className="progress-track"><span style={{ width: `${opportunity.progress}%` }} /></div>
-                <button className="opportunity-cta" onClick={onInquire}>Ask about this demo <ArrowRight size={15} /></button>
-              </div>
-            </article>
-          ))}
+        <div className="investment-unavailable">
+          <ShieldCheck size={20} />
+          <p>Only verified information from an identified operator will be published here. No returns, investor activity, deposits or investment confirmations are displayed.</p>
+          <button className="text-button" onClick={onInquire}>Contact support <ArrowRight size={15} /></button>
         </div>
-        <p className="opportunity-footnote">*Illustrative figures only. Fictional demonstration content—not a financial product, offer, solicitation, or prediction of future results. TeslaVolt is independent and not authorized, affiliated with, or endorsed by Tesla, Inc. Not investment advice. Consult qualified professionals before making financial decisions.</p>
       </section>
 
       <section className="cta-section">
@@ -970,6 +1131,157 @@ function HomePage({
         <button onClick={onAdmin}>Preview admin view <ArrowUpRight size={14} /></button>
       </section>
     </main>
+  );
+}
+
+function RoadsterShowcase({ onOrder, onUpdates }: { onOrder: () => void; onUpdates: () => void }) {
+  const roadster = vehicles.find((vehicle) => vehicle.name === "Tesla Roadster");
+
+  if (!roadster) {
+    throw new Error("Tesla Roadster vehicle data is required for the Roadster showcase.");
+  }
+
+  const features = [
+    {
+      title: "Active Aero",
+      detail: "Tesla concept footage discusses active aerodynamics. Production hardware and capabilities have not been verified.",
+      icon: Radio,
+      videoId: "cvKIR-c1SsU",
+      videoTitle: "Roadster concept features — official Tesla video",
+      source: "https://www.youtube.com/watch?v=cvKIR-c1SsU",
+    },
+    {
+      title: "Cold-Gas Thrusters",
+      detail: "Tesla presented this as a proposed concept. No production configuration or availability is confirmed.",
+      icon: Zap,
+      videoId: "r5vsHHPVhJg",
+      videoTitle: "The Kickflip — Roadster concept — official Tesla video",
+      source: "https://www.youtube.com/watch?v=r5vsHHPVhJg",
+    },
+    {
+      title: "Multi-Mode Suction System",
+      detail: "Tesla presented a fan-based downforce concept. No production system or capability is confirmed.",
+      icon: Sparkles,
+      videoId: "7p5LxFdc-Qg",
+      videoTitle: "The Ramp — Roadster concept — official Tesla video",
+      source: "https://www.youtube.com/watch?v=7p5LxFdc-Qg",
+    },
+  ];
+
+  return (
+    <>
+      <section className="roadster-hero" id="roadster">
+        <div className="roadster-hero-layout">
+          <div className="roadster-content">
+            <div className="eyebrow"><span className="eyebrow-line" /> ANNOUNCED PROTOTYPE · NOT IN PRODUCTION</div>
+            <h2>ROADSTER</h2>
+            <p>A look at Tesla's announced next-generation Roadster. Final production design, specifications, timing and availability have not been confirmed.</p>
+            <div className="hero-buttons">
+              <button className="button button-red" onClick={onOrder}>Register Interest <ArrowRight size={15} /></button>
+              <button className="button button-outline" onClick={onUpdates}>Get Updates <ArrowRight size={15} /></button>
+            </div>
+            <button className="text-button roadster-explore-button" onClick={() => document.getElementById("roadster-features")?.scrollIntoView({ behavior: "smooth" })}>Explore concept features <ArrowDown size={14} /></button>
+            <small>Interest enquiry only. This does not reserve or order a vehicle.</small>
+          </div>
+          <div className="roadster-hero-media">
+            <OfficialVideoEmbed videoId="tw4jkyfY4HE" title="Roadster — official Tesla video" />
+            <a href="https://www.youtube.com/watch?v=tw4jkyfY4HE" target="_blank" rel="noreferrer">Official Tesla Roadster video · open on YouTube <ArrowUpRight size={12} /></a>
+          </div>
+        </div>
+      </section>
+      <section className="roadster-official-media">
+        <div className="roadster-features-heading">
+          <div className="eyebrow"><span className="eyebrow-line" /> ORIGINAL TESLA MEDIA</div>
+          <h2>Roadster, as presented.</h2>
+          <p>These are Tesla-hosted videos embedded through YouTube. They are not standalone image files or a license to reuse Tesla media elsewhere.</p>
+        </div>
+        <div className="roadster-media-grid">
+          <article className="roadster-media-card">
+            <OfficialVideoEmbed videoId="qt5p-_tE8d0" title="Roadster Event — official Tesla video" />
+            <h3>Roadster Event</h3>
+            <p>Official reveal and concept demonstrations. The event footage is not a confirmation of production specifications.</p>
+            <a href="https://www.youtube.com/watch?v=qt5p-_tE8d0" target="_blank" rel="noreferrer">View original video <ArrowUpRight size={12} /></a>
+          </article>
+          <article className="roadster-media-card">
+            <OfficialVideoEmbed videoId="fdFyXTdJPLA" title="Roadster Interface — official Tesla video" />
+            <h3>Roadster interface</h3>
+            <p>Tesla's display/interface video; it does not establish a final production cockpit or interior configuration.</p>
+            <a href="https://www.youtube.com/watch?v=fdFyXTdJPLA" target="_blank" rel="noreferrer">View original video <ArrowUpRight size={12} /></a>
+          </article>
+        </div>
+      </section>
+      <section className="roadster-features" id="roadster-features">
+        <div className="roadster-features-heading">
+          <div className="eyebrow"><span className="eyebrow-line" /> ROADSTER · CONCEPT FEATURES</div>
+          <h2>Designed to<br /><span>defy ordinary.</span></h2>
+          <p>These are concept categories requested for this showcase, not verified production specifications or confirmed equipment.</p>
+        </div>
+        <div className="roadster-feature-list">
+          {features.map(({ title, detail, icon: Icon, videoId, videoTitle, source }) => (
+            <article className="roadster-feature" key={title}>
+              <span className="roadster-feature-icon"><Icon size={20} /></span>
+              <div><h3>{title}</h3><p>{detail}</p></div>
+              <span className="roadster-feature-mark">TESLA CONCEPT VIDEO</span>
+              <OfficialVideoEmbed videoId={videoId} title={videoTitle} />
+              <a className="roadster-feature-source" href={source} target="_blank" rel="noreferrer">View original video <ArrowUpRight size={12} /></a>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
+
+function OrderModal({
+  product,
+  onClose,
+  onSubmit,
+}: {
+  product: string;
+  onClose: () => void;
+  onSubmit: (message: string) => void;
+}) {
+  const [selectedProduct, setSelectedProduct] = useState(product);
+
+  return (
+    <div className="modal-backdrop order-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
+      <section className="order-modal" role="dialog" aria-modal="true" aria-labelledby="order-title">
+        <button className="modal-close" onClick={onClose} aria-label="Close enquiry form"><X size={19} /></button>
+        <div className="modal-brand"><span className="brand-mark"><TeslaVoltMark size={16} /></span> TESLAVOLT</div>
+        <div className="eyebrow"><span className="eyebrow-line" /> PRODUCT ENQUIRY</div>
+        <h2 id="order-title">Start a <span>conversation.</span></h2>
+        <p className="order-description">Share your details and we’ll prepare an enquiry in the existing Chaport chat. Nothing is ordered, reserved, paid for or sent automatically.</p>
+        <form className="order-form" onSubmit={(event) => {
+          event.preventDefault();
+          const form = new FormData(event.currentTarget);
+          const enquiry = [
+            "Hello, I would like information about:",
+            `Product: ${String(form.get("product") ?? "")}`,
+            `Name: ${String(form.get("name") ?? "")}`,
+            `Country: ${String(form.get("country") ?? "")}`,
+            `State / city: ${String(form.get("location") ?? "")}`,
+            `Email: ${String(form.get("email") ?? "")}`,
+            `Phone: ${String(form.get("phone") ?? "")}`,
+          ].join("\n");
+          onSubmit(enquiry);
+        }}>
+          <label className="form-field"><span>Full name</span><input name="name" autoComplete="name" required maxLength={120} /></label>
+          <div className="order-form-row">
+            <label className="form-field"><span>Country</span><input name="country" autoComplete="country-name" required maxLength={100} /></label>
+            <label className="form-field"><span>State or city</span><input name="location" autoComplete="address-level1" required maxLength={120} /></label>
+          </div>
+          <label className="form-field"><span>Email address</span><input name="email" type="email" autoComplete="email" required maxLength={254} /></label>
+          <label className="form-field"><span>Phone number</span><input name="phone" type="tel" autoComplete="tel" required maxLength={40} /></label>
+          <label className="form-field"><span>Vehicle or product</span>
+            <select name="product" value={selectedProduct} onChange={(event) => setSelectedProduct(event.target.value)} required>
+              {[...vehicles.map((vehicle) => vehicle.name), ...energyProducts.map((item) => item.name), "Tesla Roadster — registration of interest (not a reservation)", "Tesla Roadster — updates (no reservation)"].map((item) => <option key={item} value={item}>{item}</option>)}
+            </select>
+          </label>
+          <p className="order-privacy-note">Your details are included in a draft for you to review in Chaport. They are not submitted until you choose to send the message in the chat.</p>
+          <button type="submit" className="button button-red order-submit">Continue to Chaport <ArrowRight size={16} /></button>
+        </form>
+      </section>
+    </div>
   );
 }
 
@@ -999,7 +1311,7 @@ function AuthModal({
     <div className="modal-backdrop" onMouseDown={(event) => event.target === event.currentTarget && onClose()}>
       <section className="auth-modal" role="dialog" aria-modal="true" aria-labelledby="auth-title">
         <button className="modal-close" onClick={onClose} aria-label="Close"><X size={19} /></button>
-        <div className="modal-brand"><span className="brand-mark"><Zap size={16} fill="currentColor" /></span> TESLAVOLT</div>
+        <div className="modal-brand"><span className="brand-mark"><TeslaVoltMark size={16} /></span> TESLAVOLT</div>
         <div className="eyebrow"><span className="eyebrow-line" /> {mode === "register" ? "START YOUR JOURNEY" : "WELCOME BACK"}</div>
         <h2 id="auth-title">{mode === "register" ? <>Create your<br /><span>account.</span></> : <>Good to see<br /><span>you again.</span></>}</h2>
         <p className="auth-description">This is a front-end demonstration. No account is created and information is not transmitted or stored.</p>
@@ -1074,15 +1386,17 @@ function VehicleDetailPage({
   imageIndex,
   setImageIndex,
   onBack,
-  onInvest,
+  onOrder,
 }: {
   vehicle: Vehicle;
   imageIndex: number;
   setImageIndex: (index: number) => void;
   onBack: () => void;
-  onInvest: (vehicleName: string) => void;
+  onOrder: () => void;
 }) {
-  const gallery = vehicle.gallery;
+  const gallery = vehicle.gallery
+    .map((image) => ({ ...image, image: localImageUrl(image.image) }))
+    .filter((image, index, images) => images.findIndex((candidate) => candidate.image === image.image) === index);
   const activeImage = gallery[imageIndex];
 
   return (
@@ -1091,54 +1405,68 @@ function VehicleDetailPage({
         <button className="vehicle-back-link" onClick={onBack}><ArrowLeft size={15} /> Back to the collection</button>
         <section className="vehicle-page-layout">
           <div className="vehicle-page-gallery">
-            <div
-              className="vehicle-detail-image"
-              role="img"
-              aria-label={activeImage.alt}
-              style={{ backgroundImage: `url("${activeImage.image}")` }}
-            >
-              <span className="vehicle-detail-tag">THE ELECTRIC COLLECTION · {vehicle.accent}</span>
-              <div className="gallery-controls">
-                <button aria-label="Previous image" onClick={() => setImageIndex((imageIndex + gallery.length - 1) % gallery.length)}><ChevronLeft size={18} /></button>
-                <span>{String(imageIndex + 1).padStart(2, "0")} <i /> {String(gallery.length).padStart(2, "0")}</span>
-                <button aria-label="Next image" onClick={() => setImageIndex((imageIndex + 1) % gallery.length)}><ChevronRight size={18} /></button>
+            {activeImage ? (
+              <>
+                <div className="vehicle-detail-image">
+                  <ImageWithFallback
+                    src={activeImage.image}
+                    alt={activeImage.alt}
+                    fallback={vehicleImageFallback}
+                    loading="eager"
+                  />
+                  <span className="vehicle-detail-tag">THE ELECTRIC COLLECTION · {vehicle.accent}</span>
+                  <div className="gallery-controls">
+                    <button aria-label="Previous image" onClick={() => setImageIndex((imageIndex + gallery.length - 1) % gallery.length)}><ChevronLeft size={18} /></button>
+                    <span>{String(imageIndex + 1).padStart(2, "0")} <i /> {String(gallery.length).padStart(2, "0")}</span>
+                    <button aria-label="Next image" onClick={() => setImageIndex((imageIndex + 1) % gallery.length)}><ChevronRight size={18} /></button>
+                  </div>
+                </div>
+                <div className="vehicle-gallery-caption">
+                  <span>{activeImage.caption}</span>
+                  {activeImage.credit && (
+                    <span className="vehicle-image-credit">
+                      Photo by <a href={activeImage.credit.url} target="_blank" rel="noreferrer">{activeImage.credit.label}</a>
+                      {" · "}
+                      <a href={activeImage.credit.licenseUrl} target="_blank" rel="noreferrer">{activeImage.credit.license}</a>
+                    </span>
+                  )}
+                </div>
+                <div className="vehicle-gallery-thumbnails">
+                  {gallery.map((image, index) => (
+                    <button
+                      key={image.image}
+                      className={index === imageIndex ? "vehicle-thumbnail vehicle-thumbnail-active" : "vehicle-thumbnail"}
+                      aria-label={`Show ${image.caption}`}
+                      title={image.caption}
+                      aria-pressed={index === imageIndex}
+                      onClick={() => setImageIndex(index)}
+                    >
+                      <ImageWithFallback
+                        src={image.image}
+                        alt=""
+                        fallback={vehicleImageFallback}
+                      />
+                    </button>
+                  ))}
+                </div>
+              </>
+            ) : (
+              <div className="vehicle-detail-no-image">
+                <span>OFFICIAL TESLA VIDEO</span>
+                <p>A verified license for standalone Roadster still images was not found. The official video embeds below provide the available primary-source media.</p>
+                <a href="https://www.youtube.com/watch?v=tw4jkyfY4HE" target="_blank" rel="noreferrer">Open the official Roadster video <ArrowUpRight size={14} /></a>
               </div>
-            </div>
-            <div className="vehicle-gallery-caption">
-              <span>{activeImage.caption}</span>
-              {activeImage.credit && (
-                <span className="vehicle-image-credit">
-                  Photo by <a href={activeImage.credit.url} target="_blank" rel="noreferrer">{activeImage.credit.label}</a>
-                  {" · "}
-                  <a href={activeImage.credit.licenseUrl} target="_blank" rel="noreferrer">{activeImage.credit.license}</a>
-                </span>
-              )}
-            </div>
-            <div className="vehicle-gallery-thumbnails">
-              {gallery.map((image, index) => (
-                <button
-                  key={image.image}
-                  className={index === imageIndex ? "vehicle-thumbnail vehicle-thumbnail-active" : "vehicle-thumbnail"}
-                  style={{ backgroundImage: `url("${image.image}")` }}
-                  aria-label={`Show ${image.caption}`}
-                  title={image.caption}
-                  aria-pressed={index === imageIndex}
-                  onClick={() => setImageIndex(index)}
-                />
-              ))}
-            </div>
+            )}
           </div>
           <div className="vehicle-page-details">
             <div className="vehicle-detail-body">
               <div className="eyebrow"><span className="eyebrow-line" /> {vehicle.category.toUpperCase()}</div>
               <div className="vehicle-detail-heading">
                 <div><h1>{vehicle.name}</h1><p>{vehicle.name === "Tesla Roadster" ? "Announced prototype · not in production" : "All-electric vehicle"}</p></div>
-                <button
-                  className="button button-red vehicle-invest-button"
-                  onClick={() => onInvest(vehicle.name)}
-                >
-                  INVEST IN THIS MODEL <ArrowRight size={15} />
-                </button>
+                <div className="vehicle-detail-actions">
+                  <button className="button button-red vehicle-invest-button" onClick={onOrder}>{vehicle.name === "Tesla Roadster" ? "Get updates" : "Order now"} <ArrowRight size={15} /></button>
+                  <a className="button button-outline vehicle-learn-button" href={vehicle.officialUrl} target="_blank" rel="noreferrer">Learn more <ArrowUpRight size={15} /></a>
+                </div>
               </div>
               <p className="vehicle-description">{vehicle.description}</p>
               <div className="spec-grid">
@@ -1164,7 +1492,7 @@ function VehicleDetailPage({
                   <p>{vehicle.performanceDetails}</p>
                 </article>
               </div>
-              <p className="vehicle-invest-disclaimer">TeslaVolt is an independent concept platform. This button opens Chaport with a prepared enquiry only; no investment is offered and no message is sent until you send it yourself.</p>
+              <p className="vehicle-invest-disclaimer">This opens an enquiry form only. No order or reservation is placed, and no message is sent until you review and send it in Chaport.</p>
               <p className="vehicle-detail-disclaimer">{vehicle.specificationsNote} Review <a href={vehicle.officialUrl} target="_blank" rel="noreferrer">Tesla's official vehicle information</a> for current configurations and market-specific specifications. TeslaVolt is an independent concept experience and is not affiliated with or endorsed by Tesla, Inc.</p>
             </div>
             <div className="vehicle-detail-note"><ShieldCheck size={17} /><span>THE ELECTRIC COLLECTION</span><strong>Six Tesla vehicles. One electric future.</strong></div>
@@ -1195,10 +1523,10 @@ function AccountPage({
   return (
     <main className="account-page">
       <aside className="account-sidebar">
-        <button className="account-sidebar-brand" onClick={onBack}><span className="brand-mark"><Zap size={16} fill="currentColor" /></span> TESLAVOLT</button>
+        <button className="account-sidebar-brand" onClick={onBack}><span className="brand-mark"><TeslaVoltMark size={16} /></span> TESLAVOLT</button>
         <span className="sidebar-label">{isAdmin ? "ADMINISTRATION" : "YOUR SPACE"}</span>
         <button className="sidebar-item sidebar-item-active"><span className="sidebar-icon">▦</span> {isAdmin ? "Overview" : "Dashboard"}</button>
-        <button className="sidebar-item" onClick={onBack}><span className="sidebar-icon">⌁</span> Explore opportunities</button>
+        <button className="sidebar-item" onClick={onBack}><span className="sidebar-icon">⌁</span> Explore TeslaVolt</button>
         <button className="sidebar-item" onClick={onInquire}><span className="sidebar-icon">◌</span> Support</button>
         {isAdmin && <><span className="sidebar-label sidebar-label-lower">MANAGE</span><button className="sidebar-item"><span className="sidebar-icon">◷</span> Inquiries <span className="sidebar-count">3</span></button><button className="sidebar-item"><span className="sidebar-icon">◉</span> Demo users</button></>}
         <div className="sidebar-bottom">
@@ -1211,34 +1539,29 @@ function AccountPage({
         <div className="account-content">
           <div className="account-eyebrow"><span className="account-green-dot" /> {isAdmin ? "PLATFORM OVERVIEW" : "YOUR TESLAVOLT SPACE"}</div>
           <h1>{isAdmin ? "Good morning, Admin." : `Welcome back, ${name.split(" ")[0]}.`}</h1>
-          <p className="account-subtitle">{isAdmin ? "A preview of platform activity and sample inquiries." : "Your space to explore the electric transition."}</p>
+          <p className="account-subtitle">{isAdmin ? "A preview of the platform interface. No live activity is connected." : "Your space to explore electric mobility and energy."}</p>
           <div className="account-demo-alert"><CircleHelp size={17} /><span><strong>Demo dashboard.</strong> This is a front-end preview. No real accounts, activity, customer records, or investments are connected.</span></div>
           <div className="dashboard-stat-grid">
             {(isAdmin ? [
-              { label: "Total demo users", value: "128", change: "+12 this month", icon: "◉" },
-              { label: "Sample inquiries", value: "24", change: "8 awaiting review", icon: "◷" },
-              { label: "Demo opportunities", value: "03", change: "All marked as samples", icon: "⌁" },
+              { label: "Connected user records", value: "0", change: "No backend connected", icon: "◉" },
+              { label: "Customer enquiries", value: "0", change: "No records connected", icon: "◷" },
+              { label: "Investment offers", value: "0", change: "No service configured", icon: "⌁" },
             ] : [
-              { label: "Portfolio value", value: "$0.00", change: "No holdings", icon: "$" },
-              { label: "Active investments", value: "0", change: "Explore demo opportunities", icon: "⌁" },
+              { label: "Investment service", value: "None", change: "Not available on this site", icon: "—" },
+              { label: "Investment activity", value: "None", change: "No service is connected", icon: "⌁" },
               { label: "Account status", value: "Preview", change: "No account created", icon: "◉" },
             ]).map((stat) => <div className="dashboard-stat" key={stat.label}><div className="stat-top"><span>{stat.label}</span><i>{stat.icon}</i></div><strong>{stat.value}</strong><small>{stat.change}</small></div>)}
           </div>
           {isAdmin ? (
             <div className="admin-dashboard-grid">
-              <section className="dashboard-panel admin-inquiries"><div className="dashboard-panel-heading"><div><span className="panel-overline">RECENT ACTIVITY</span><h3>Sample inquiries</h3></div><button>View all <ArrowRight size={14} /></button></div>
-                {[
-                  ["JD", "Jordan Davis", "Volt Mobility Fund I", "2 min ago", "New"],
-                  ["SK", "Sam Kim", "Next Mile Charging", "1 hour ago", "Review"],
-                  ["RT", "Riley Taylor", "Clean Grid Notes", "Yesterday", "Replied"],
-                ].map((item) => <div className="inquiry-row" key={item[1]}><div className="inquiry-avatar">{item[0]}</div><div className="inquiry-person"><strong>{item[1]}</strong><span>{item[2]}</span></div><span className="inquiry-time">{item[3]}</span><span className={`inquiry-status status-${item[4].toLowerCase()}`}>{item[4]}</span></div>)}
-                <p className="table-demo-caption">Fictional demo entries — not real customers or inquiries.</p>
+              <section className="dashboard-panel admin-inquiries"><div className="dashboard-panel-heading"><div><span className="panel-overline">CUSTOMER ENQUIRIES</span><h3>No connected enquiries</h3></div><MessageCircle size={16} /></div>
+                <div className="empty-activity"><span className="empty-activity-icon"><MessageCircle size={18} /></span><strong>No customer records are connected.</strong><p>Enquiries open in Chaport and are managed through your Chaport account.</p></div>
               </section>
               <section className="dashboard-panel admin-quick"><div className="panel-overline">QUICK ACTION</div><h3>Keep the platform moving.</h3><p>This admin panel is a visual prototype. Connect a secure backend before managing users, opportunities, or customer data.</p><button className="button button-red" onClick={onInquire}>Open live chat <ArrowRight size={15} /></button><button className="admin-return" onClick={onRegister}>Open sign-up preview <ArrowUpRight size={14} /></button></section>
             </div>
           ) : (
             <div className="dashboard-lower-grid">
-              <section className="dashboard-panel welcome-panel"><div className="welcome-panel-glow" /><div className="panel-overline">A NEW WAY FORWARD</div><h3>Explore the ideas<br />moving us forward.</h3><p>Browse fictional example opportunities inspired by the changing world of electric mobility.</p><button className="button button-red" onClick={onBack}>Explore the platform <ArrowRight size={15} /></button><span className="welcome-panel-tag">TESLAVOLT · CONCEPT</span></section>
+              <section className="dashboard-panel welcome-panel"><div className="welcome-panel-glow" /><div className="panel-overline">A NEW WAY FORWARD</div><h3>Explore electric<br />mobility and energy.</h3><p>Discover vehicle galleries, home energy products and supervised-driving information.</p><button className="button button-red" onClick={onBack}>Explore the platform <ArrowRight size={15} /></button><span className="welcome-panel-tag">TESLAVOLT · CONCEPT</span></section>
               <section className="dashboard-panel activity-panel"><div className="dashboard-panel-heading"><div><span className="panel-overline">YOUR ACTIVITY</span><h3>Recent activity</h3></div><Clock3 size={16} /></div><div className="empty-activity"><span className="empty-activity-icon"><Zap size={18} /></span><strong>It's quiet in here.</strong><p>Your demo dashboard starts fresh. Explore the platform to see what's possible.</p><button onClick={onBack}>Explore TeslaVolt <ArrowRight size={14} /></button></div></section>
             </div>
           )}
@@ -1253,8 +1576,9 @@ function Footer({ onNavigate }: { onNavigate: (id: string) => void }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const faqs = [
     ["Is TeslaVolt affiliated with Tesla?", "No. TeslaVolt is an independent concept experience and is not authorized by, affiliated with, or endorsed by Tesla, Inc."],
-    ["Are the investment opportunities real?", "No. The opportunities on this site are fictional examples for demonstration only. No live offers or financial products are configured."],
-    ["Can I create a real account or invest?", "Not at this time. Sign-up and dashboard experiences are front-end prototypes only. No personal data is saved or transmitted."],
+    ["Can I place an order or reserve a vehicle here?", "No. The enquiry form prepares a message for you to review in Chaport. It does not place an order, reserve a vehicle, or take payment."],
+    ["Is Full Self-Driving fully autonomous?", "No. Full Self-Driving (Supervised) requires active driver supervision and does not make a vehicle fully autonomous."],
+    ["Is an investment service available?", "No investment service or offer is configured. The operating legal entity has not been provided, and no investment information is presented as verified."],
   ];
 
   return (
@@ -1264,10 +1588,10 @@ function Footer({ onNavigate }: { onNavigate: (id: string) => void }) {
         <div className="faq-list">{faqs.map(([question, answer], index) => <div className={`faq-item ${openFaq === index ? "faq-item-open" : ""}`} key={question}><button onClick={() => setOpenFaq(openFaq === index ? null : index)} aria-expanded={openFaq === index}><span>0{index + 1}</span><strong>{question}</strong><i>{openFaq === index ? <Minus size={16} /> : <Plus size={16} />}</i></button>{openFaq === index && <p>{answer}</p>}</div>)}</div>
       </div>
       <div className="footer-main">
-        <div className="footer-brand-col"><button className="brand footer-brand" onClick={() => onNavigate("top")}><span className="brand-mark"><Zap size={18} fill="currentColor" /></span><span>TESLA<span className="brand-light">VOLT</span></span></button><p>Electric ideas for a world<br />in motion.</p><span className="footer-location"><Globe2 size={13} /> A concept for the curious, everywhere.</span></div>
-        <div className="footer-link-col"><span>EXPLORE</span><button onClick={() => onNavigate("vehicles")}>The vehicles</button><button onClick={() => onNavigate("opportunities")}>Opportunities</button><button onClick={() => onNavigate("about")}>Our vision</button></div>
-        <div className="footer-link-col"><span>CONNECT</span><button onClick={() => document.querySelector<HTMLButtonElement>(".chat-launcher")?.click()}>Get in touch</button><button onClick={() => onNavigate("opportunities")}>Investment demo</button><button onClick={() => onNavigate("top")}>Back to top <ArrowUpRight size={12} /></button></div>
-        <div className="footer-disclaimer"><span><ShieldCheck size={15} /> IMPORTANT INFORMATION</span><p>TeslaVolt is a concept website, not authorized by, affiliated with, or endorsed by Tesla, Inc. All opportunities are fictional demonstrations—not investment offers, advice, or financial products. No real accounts, services, or investment activity are available.</p></div>
+        <div className="footer-brand-col"><button className="brand footer-brand" onClick={() => onNavigate("top")}><span className="brand-mark"><TeslaVoltMark /></span><span>TESLA<span className="brand-light">VOLT</span></span></button><p>Electric ideas for a world<br />in motion.</p><span className="footer-location"><Globe2 size={13} /> A concept for the curious, everywhere.</span></div>
+        <div className="footer-link-col"><span>EXPLORE</span><button onClick={() => onNavigate("vehicles")}>The vehicles</button><button onClick={() => onNavigate("energy")}>Home energy</button><button onClick={() => onNavigate("self-driving")}>Self-driving</button><button onClick={() => onNavigate("about")}>About TeslaVolt</button></div>
+        <div className="footer-link-col"><span>CONNECT</span><button onClick={() => document.querySelector<HTMLButtonElement>(".chat-launcher")?.click()}>Customer support</button><button onClick={() => onNavigate("investment")}>Investment information</button><button onClick={() => onNavigate("top")}>Back to top <ArrowUpRight size={12} /></button></div>
+        <div className="footer-disclaimer"><span><ShieldCheck size={15} /> IMPORTANT INFORMATION</span><p>TeslaVolt is an independent concept website and is not affiliated with or endorsed by Tesla, Inc. No investment service, product or offer is available. The operating legal entity has not been supplied. Product enquiries do not create an order or reservation.</p></div>
       </div>
       <div className="footer-bottom"><span>© 2026 TESLAVOLT. A CONCEPT FOR WHAT'S NEXT.</span><span>BUILT FOR AN ELECTRIC FUTURE <i /> NOT AFFILIATED WITH TESLA, INC.</span><button onClick={() => onNavigate("top")}>BACK TO TOP <ArrowUpRight size={12} /></button></div>
     </footer>

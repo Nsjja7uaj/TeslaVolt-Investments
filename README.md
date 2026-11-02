@@ -1,6 +1,6 @@
-# TeslaVolt Investments
+# TeslaVolt
 
-A responsive, front-end concept for electric-vehicle discovery and a sample mobility investment platform. Built with React, TypeScript, Vite, and Tailwind CSS.
+A responsive automotive and home-energy discovery concept built with React, TypeScript, Vite, and Tailwind CSS. TeslaVolt is independent and is not authorized by, affiliated with, or endorsed by Tesla, Inc.
 
 ## Run locally
 
@@ -13,9 +13,13 @@ Vite listens on `0.0.0.0:5173` so the development server can be reached from a f
 
 Create a production build with `npm run build`; preview it locally with `npm run preview`.
 
-## Demo limitations
+## Product and account limitations
 
-This repository contains a front-end prototype only. Sign-up and login do not create or authenticate accounts, forms do not transmit or persist personal data, and the dashboard contains fictional placeholder data. Administrator screens are demonstrations and are not protected. All displayed investment opportunities and financial figures are fictional examples, not offers, financial products, or advice. TeslaVolt is not authorized, affiliated with, or endorsed by Tesla, Inc.
+This repository contains a front-end concept only. Vehicle and energy forms prepare an enquiry for the visitor to review in Chaport; they do not place orders, reservations, or payments. Chaport's documented JavaScript API exposes an `open` method but no message-prefill method, so the visitor must copy the prepared enquiry into the chat and send it themselves. The site does not send it automatically.
+
+Sign-up, login, and dashboard screens are demonstrations only; they do not create accounts, authenticate users, or connect to a backend. The admin preview is not protected and must not be used to manage real users or customer information.
+
+No investment service, product, or offer is configured. The operating legal entity for TeslaVolt has not been supplied, so no investment activity or operator identity is represented as verified. Do not treat the prototype as financial advice or an investment offer.
 
 ## Chaport live chat
 
@@ -25,8 +29,18 @@ The floating support button opens the official Chaport web widget, loaded from C
 2. Keep the included `VITE_CHAPORT_APP_ID` value, or replace it with the public App ID from your Chaport account if needed.
 3. Restart the Vite development server or rebuild the site after changing the value.
 
-The site loads Chaport's official widget script once and opens it from the floating button. Manage conversations from your Chaport account or its mobile app. The App ID is public and included in the frontend build; never put passwords or private API credentials in this variable. Chaport must be enabled for the site in your account for visitors to message you.
+The site loads Chaport's official widget script once and opens the same widget from the floating support button. Product enquiries prepare a message with the visitor's submitted details for them to review and send. Manage conversations from your Chaport account or its mobile app. The App ID is public and included in the frontend build; never put passwords or private API credentials in this variable. Chaport must be enabled for the site in your account for visitors to message you.
 
-The vehicle-specific **INVEST IN THIS MODEL** button opens that same widget and displays a prepared, model-specific message to copy into the chat. Chaport's documented JavaScript API exposes an `open` method but no message-prefill method, so the visitor must paste and send the message themselves. The site does not send it automatically.
+## Full Self-Driving video
 
-Vehicle range and acceleration figures are estimates for selected configurations; verify current, market-specific figures on each linked Tesla model page. The next-generation Roadster is shown as an announced vehicle, and its final production specifications, timing, availability, and pricing are not represented as confirmed.
+The default player embeds Tesla's official **Full Self-Driving (Supervised)** YouTube upload using YouTube's privacy-enhanced embed player. It has controls, supports responsive inline playback, and does not autoplay. YouTube may restrict embedded playback based on the video's settings, region, or visitor's browser.
+
+The official upload is a relevant FSD demonstration, but its available metadata does not verify every scene requested for the site, including the complete city-intersection and passenger sequence. To use your own verified video instead, set `VITE_FSD_VIDEO_URL` in `.env.local` to a browser-accessible video file URL and restart Vite. The configured video uses the native player and existing fallback.
+
+Full Self-Driving (Supervised) requires active driver supervision and does not make a vehicle fully autonomous. Model images and vehicle specifications should be checked against the linked official Tesla pages for current market-specific information. The Roadster is presented as an announced prototype; its production design, specifications, timing, and availability are not confirmed. Its requested feature categories are explicitly identified as unverified concepts.
+
+## Website images and credits
+
+Vehicle galleries and energy product photography are included locally under `public/images`, so the site does not depend on third-party image servers at runtime. The vehicle and product photos are from Wikimedia Commons; their photographer and license links are shown with the relevant gallery or product image. The wind-turbine background is an Unsplash-licensed image. Custom local SVG artwork is used if a photo cannot load. These are illustrative images and do not imply product availability or endorsement.
+
+The Roadster showcase uses official Tesla YouTube embeds for the Roadster, interface, event, and concept-feature videos. These play through YouTube's player; they are not downloaded, cropped, or rehosted. Embedding a video does not grant permission to reuse its stills or other media. No verified license for standalone official Roadster images was found, so no unofficial Roadster photographs are shown in the showcase. YouTube embed availability remains subject to Tesla's video settings and YouTube's playback restrictions.
