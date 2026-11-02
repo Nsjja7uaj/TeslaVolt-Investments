@@ -19,7 +19,7 @@ This repository contains a front-end concept only. Vehicle and energy forms prep
 
 Sign-up, login, and dashboard screens are demonstrations only; they do not create accounts, authenticate users, or connect to a backend. The admin preview is not protected and must not be used to manage real users or customer information.
 
-No investment service, product, or offer is configured. The operating legal entity for TeslaVolt has not been supplied, so no investment activity or operator identity is represented as verified. Do not treat the prototype as financial advice or an investment offer.
+The site has a separate investment-information page, but no investment service, product, or offer is configured. No company registration details, regulatory authorisation, investment terms, product-specific risk disclosures, complaint-handling process, Bybit wallet address, or supported USDT network have been supplied for an investment operator. The site makes no claim that an investment operator is licensed or regulated. Deposit and TXID fields are disabled; the site does not accept or store submissions, verify transactions, or approve deposits. It has no pending-deposit queue or investment transaction records. The member/admin screens are previews. Do not send funds or TXIDs, and do not treat this prototype as financial advice or an investment offer. Investment can result in loss, and crypto transfers may be irreversible.
 
 ## Chaport live chat
 

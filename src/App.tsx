@@ -503,7 +503,7 @@ const countries = getCountries()
   .sort((first, second) => first.name.localeCompare(second.name));
 
 type AuthMode = "register" | "login" | null;
-type Page = "home" | "dashboard" | "admin";
+type Page = "home" | "investment" | "dashboard" | "admin";
 
 type ChaportApi = {
   _q?: unknown[][];
@@ -652,7 +652,7 @@ function App() {
   const [preparedChatMessage, setPreparedChatMessage] = useState<string | null>(null);
   const [chatLoadFailed, setChatLoadFailed] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeName, setActiveName] = useState("Alex Morgan");
+  const [activeName, setActiveName] = useState("Visitor");
 
   useEffect(() => {
     if (!chaportAppId) return;
@@ -717,7 +717,19 @@ function App() {
     setMobileMenuOpen(false);
   };
 
+  const openInvestmentPage = () => {
+    setMobileMenuOpen(false);
+    setSelectedVehicle(null);
+    setPage("investment");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   const scrollTo = (id: string) => {
+    if (id === "investment") {
+      openInvestmentPage();
+      return;
+    }
+
     setMobileMenuOpen(false);
     setSelectedVehicle(null);
     setPage("home");
@@ -737,7 +749,7 @@ function App() {
     <div id="top" className="min-h-screen bg-ink text-white">
       <div className="announcement">
         <Sparkles size={13} />
-        <span>A concept platform for the next era of mobility</span>
+        <span>TeslaVolt is independent and not affiliated with Tesla, Inc.</span>
         <span className="announcement-separator">·</span>
         <button onClick={() => scrollTo("investment")}>Investment information</button>
       </div>
@@ -808,7 +820,7 @@ function App() {
             setVehicleImageIndex(0);
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
-          onInquire={() => openSupportChat()}
+          onInvestment={openInvestmentPage}
           onOrder={(product) => setOrderProduct(product)}
           onRegister={() => openAuth("register")}
           onDashboard={enterDashboard}
@@ -817,6 +829,11 @@ function App() {
             window.scrollTo({ top: 0, behavior: "smooth" });
           }}
         />
+      ) : page === "investment" ? (
+        <InvestmentPage onBack={() => {
+          setPage("home");
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        }} />
       ) : (
         <AccountPage
           page={page}
@@ -907,14 +924,14 @@ function App() {
 
 function HomePage({
   onVehicleSelect,
-  onInquire,
+  onInvestment,
   onOrder,
   onRegister,
   onDashboard,
   onAdmin,
 }: {
   onVehicleSelect: (vehicle: Vehicle) => void;
-  onInquire: () => void;
+  onInvestment: () => void;
   onOrder: (product: string) => void;
   onRegister: () => void;
   onDashboard: () => void;
@@ -939,7 +956,7 @@ function HomePage({
             <button className="button button-red" onClick={() => document.getElementById("vehicles")?.scrollIntoView({ behavior: "smooth" })}>
               Explore vehicles <ArrowRight size={16} />
             </button>
-            <button className="button button-outline" onClick={() => document.getElementById("investment")?.scrollIntoView({ behavior: "smooth" })}>
+            <button className="button button-outline" onClick={onInvestment}>
               Investment information <ArrowUpRight size={15} />
             </button>
           </div>
@@ -957,9 +974,9 @@ function HomePage({
       </section>
 
       <section className="trust-strip">
-        <div><ShieldCheck size={18} /><span>Built around transparency</span></div>
+        <div><ShieldCheck size={18} /><span>Independent TeslaVolt experience</span></div>
         <span className="trust-divider" />
-        <div><Globe2 size={18} /><span>A global EV community</span></div>
+        <div><Globe2 size={18} /><span>Vehicle and energy discovery</span></div>
         <span className="trust-divider" />
         <div><Zap size={17} /><span>Electric ideas, in motion</span></div>
       </section>
@@ -1088,30 +1105,11 @@ function HomePage({
           <div className="eyebrow"><span className="eyebrow-line" /> A DIFFERENT KIND OF DRIVE</div>
           <h2>Progress isn't<br />a destination.<br /><span>It's a direction.</span></h2>
           <p>We believe the shift to electric is bigger than what we drive. It's a chance to rethink what moving forward looks like.</p>
-          <button className="text-button" onClick={() => document.getElementById("investment")?.scrollIntoView({ behavior: "smooth" })}>
+          <button className="text-button" onClick={onInvestment}>
             Discover our perspective <ArrowRight size={16} />
           </button>
         </div>
         <div className="manifesto-caption">THE FUTURE DOESN'T WAIT FOR GREEN LIGHTS.</div>
-      </section>
-
-      <section className="section opportunity-section" id="investment">
-        <div className="section-heading opportunity-heading">
-          <div>
-            <div className="eyebrow"><span className="eyebrow-line" /> INVESTMENT INFORMATION</div>
-            <h2>A separate <span>conversation.</span></h2>
-          </div>
-          <p>Vehicle and energy enquiries are not investment activity. No investment offering is configured on this website.</p>
-        </div>
-        <div className="demo-banner">
-          <span className="demo-banner-icon"><CircleHelp size={17} /></span>
-          <span><strong>No investment service or offer is available here.</strong> The operating legal entity for TeslaVolt has not been provided for this website, so no investment products or company identity are represented. TeslaVolt is not affiliated with or endorsed by Tesla, Inc.</span>
-        </div>
-        <div className="investment-unavailable">
-          <ShieldCheck size={20} />
-          <p>Only verified information from an identified operator will be published here. No returns, investor activity, deposits or investment confirmations are displayed.</p>
-          <button className="text-button" onClick={onInquire}>Contact support <ArrowRight size={15} /></button>
-        </div>
       </section>
 
       <section className="cta-section">
@@ -1232,6 +1230,115 @@ function RoadsterShowcase({ onOrder, onUpdates }: { onOrder: () => void; onUpdat
   );
 }
 
+function InvestmentPage({ onBack }: { onBack: () => void }) {
+  return (
+    <main className="investment-page">
+      <section className="investment-hero">
+        <div className="investment-hero-content">
+          <div className="eyebrow"><span className="eyebrow-line" /> TESLAVOLT · INVESTMENT INFORMATION</div>
+          <h1>Clarity before<br /><span>capital.</span></h1>
+          <p>Investment information is separate from TeslaVolt's vehicle and energy experience. No investment offer or deposit service is currently available.</p>
+          <div className="investment-status-pill"><span /> No active offer</div>
+        </div>
+      </section>
+
+      <section className="investment-content">
+        <div className="investment-notice" role="note">
+          <CircleHelp size={20} />
+          <div>
+            <strong>Please do not send funds.</strong>
+            <p>No investment product, payment address, or deposit submission service is configured on this website. Do not transfer USDT or share a transaction ID with anyone claiming this page accepts deposits.</p>
+          </div>
+        </div>
+
+        <div className="investment-facts">
+          <article>
+            <span>01 · COMPANY REGISTRATION</span>
+            <h2>Details not provided</h2>
+            <p>No legal company name, registration number, or registered address has been supplied for an investment operator.</p>
+          </article>
+          <article>
+            <span>02 · REGULATORY STATUS</span>
+            <h2>Not established</h2>
+            <p>No regulatory authorisation details or regulator records have been supplied. This site makes no claim that an investment operator is licensed or regulated.</p>
+          </article>
+          <article>
+            <span>03 · TERMS &amp; RISKS</span>
+            <h2>Not published</h2>
+            <p>No offering terms or product-specific risk disclosures are available. Investments can lose value; crypto transfers may be irreversible.</p>
+          </article>
+          <article>
+            <span>04 · COMPLAINTS</span>
+            <h2>No process provided</h2>
+            <p>No investment complaint or dispute-resolution procedure is documented on this website.</p>
+          </article>
+          <article>
+            <span>05 · USDT DEPOSITS</span>
+            <h2>Not enabled</h2>
+            <p>No Bybit wallet address or supported network is configured. Never guess a network or send a test transfer.</p>
+          </article>
+        </div>
+
+        <section className="investment-workflow">
+          <div className="investment-section-heading">
+            <div className="eyebrow"><span className="eyebrow-line" /> NO DEPOSIT SERVICE</div>
+            <h2>Verification is <span>not connected.</span></h2>
+            <p>This website cannot accept deposits or TXIDs. It has no payment instructions, transaction-verification service, or secure submission backend.</p>
+          </div>
+          <form className="investment-form" aria-label="Investment deposit submission unavailable">
+            <fieldset disabled>
+              <legend>Unavailable — do not submit funds</legend>
+              <label>
+                <span>Amount (USDT)</span>
+                <input type="number" min="0" placeholder="Unavailable" />
+              </label>
+              <label>
+                <span>Transaction ID (TXID)</span>
+                <input type="text" placeholder="Unavailable" />
+              </label>
+              <label>
+                <span>Email address</span>
+                <input type="email" placeholder="Unavailable" />
+              </label>
+              <button className="button button-dark" type="submit">Submissions unavailable <ArrowRight size={15} /></button>
+            </fieldset>
+            <p>Fields are disabled. This page does not collect, store, or submit personal or payment information.</p>
+          </form>
+        </section>
+
+        <div className="investment-records">
+          <section>
+            <div className="investment-record-heading">
+              <div><span className="eyebrow"><span className="eyebrow-line" /> SUBMISSION STATUS</span><h2>Deposit reviews</h2></div>
+              <Clock3 size={19} />
+            </div>
+            <div className="investment-empty-state">
+              <strong>Deposit submissions are not available</strong>
+              <p>No submissions are received or reviewed by this website. No pending-deposit queue is connected.</p>
+            </div>
+          </section>
+          <section>
+            <div className="investment-record-heading">
+              <div><span className="eyebrow"><span className="eyebrow-line" /> PUBLIC ACTIVITY</span><h2>Recent investments</h2></div>
+              <ShieldCheck size={19} />
+            </div>
+            <div className="investment-empty-state">
+              <strong>No investment records are available</strong>
+              <p>This website has no connected investment service or transaction records. It does not publish or imply verified investment activity.</p>
+            </div>
+          </section>
+        </div>
+
+        <div className="investment-independence">
+          <ShieldCheck size={17} />
+          <p>TeslaVolt is independent and is not affiliated with, authorized by, or endorsed by Tesla, Inc. Tesla's name is used only to identify the vehicles featured on this site. No company registration, regulatory authorisation, investment terms, or complaint-handling documents have been supplied for an investment service.</p>
+        </div>
+        <button className="investment-back-button" onClick={onBack}><ArrowLeft size={15} /> Return to the vehicle collection</button>
+      </section>
+    </main>
+  );
+}
+
 function OrderModal({
   product,
   onClose,
@@ -1325,7 +1432,7 @@ function AuthModal({
           {mode === "register" && (
             <label className="form-field">
               <span>Full name</span>
-              <input autoComplete="name" required placeholder="Alex Morgan" value={name} onChange={(event) => setName(event.target.value)} />
+              <input autoComplete="name" required placeholder="Your name" value={name} onChange={(event) => setName(event.target.value)} />
             </label>
           )}
           <label className="form-field">
@@ -1528,7 +1635,7 @@ function AccountPage({
         <button className="sidebar-item sidebar-item-active"><span className="sidebar-icon">▦</span> {isAdmin ? "Overview" : "Dashboard"}</button>
         <button className="sidebar-item" onClick={onBack}><span className="sidebar-icon">⌁</span> Explore TeslaVolt</button>
         <button className="sidebar-item" onClick={onInquire}><span className="sidebar-icon">◌</span> Support</button>
-        {isAdmin && <><span className="sidebar-label sidebar-label-lower">MANAGE</span><button className="sidebar-item"><span className="sidebar-icon">◷</span> Inquiries <span className="sidebar-count">3</span></button><button className="sidebar-item"><span className="sidebar-icon">◉</span> Demo users</button></>}
+        {isAdmin && <><span className="sidebar-label sidebar-label-lower">MANAGE</span><button className="sidebar-item"><span className="sidebar-icon">◷</span> Inquiries</button><button className="sidebar-item"><span className="sidebar-icon">◉</span> Demo users</button></>}
         <div className="sidebar-bottom">
           <div className="sidebar-demo-note"><ShieldCheck size={15} /><span>Demo preview<br /><small>No real account data</small></span></div>
           <button className="sidebar-signout" onClick={onLogout}><ArrowLeft size={15} /> Return to website</button>
@@ -1543,9 +1650,9 @@ function AccountPage({
           <div className="account-demo-alert"><CircleHelp size={17} /><span><strong>Demo dashboard.</strong> This is a front-end preview. No real accounts, activity, customer records, or investments are connected.</span></div>
           <div className="dashboard-stat-grid">
             {(isAdmin ? [
-              { label: "Connected user records", value: "0", change: "No backend connected", icon: "◉" },
-              { label: "Customer enquiries", value: "0", change: "No records connected", icon: "◷" },
-              { label: "Investment offers", value: "0", change: "No service configured", icon: "⌁" },
+              { label: "Connected user records", value: "Not connected", change: "No backend connected", icon: "◉" },
+              { label: "Customer enquiries", value: "Not connected", change: "No records connected", icon: "◷" },
+              { label: "Investment service", value: "None", change: "No service configured", icon: "⌁" },
             ] : [
               { label: "Investment service", value: "None", change: "Not available on this site", icon: "—" },
               { label: "Investment activity", value: "None", change: "No service is connected", icon: "⌁" },
@@ -1553,12 +1660,25 @@ function AccountPage({
             ]).map((stat) => <div className="dashboard-stat" key={stat.label}><div className="stat-top"><span>{stat.label}</span><i>{stat.icon}</i></div><strong>{stat.value}</strong><small>{stat.change}</small></div>)}
           </div>
           {isAdmin ? (
-            <div className="admin-dashboard-grid">
-              <section className="dashboard-panel admin-inquiries"><div className="dashboard-panel-heading"><div><span className="panel-overline">CUSTOMER ENQUIRIES</span><h3>No connected enquiries</h3></div><MessageCircle size={16} /></div>
-                <div className="empty-activity"><span className="empty-activity-icon"><MessageCircle size={18} /></span><strong>No customer records are connected.</strong><p>Enquiries open in Chaport and are managed through your Chaport account.</p></div>
+            <>
+              <div className="admin-dashboard-grid">
+                <section className="dashboard-panel admin-inquiries"><div className="dashboard-panel-heading"><div><span className="panel-overline">CUSTOMER ENQUIRIES</span><h3>No connected enquiries</h3></div><MessageCircle size={16} /></div>
+                  <div className="empty-activity"><span className="empty-activity-icon"><MessageCircle size={18} /></span><strong>No customer records are connected.</strong><p>Enquiries open in Chaport and are managed through your Chaport account.</p></div>
+                </section>
+                <section className="dashboard-panel admin-quick"><div className="panel-overline">QUICK ACTION</div><h3>Keep the platform moving.</h3><p>This admin panel is a visual prototype. Connect a secure backend before managing users, opportunities, or customer data.</p><button className="button button-red" onClick={onInquire}>Open live chat <ArrowRight size={15} /></button><button className="admin-return" onClick={onRegister}>Open sign-up preview <ArrowUpRight size={14} /></button></section>
+              </div>
+              <section className="dashboard-panel admin-deposits">
+                <div className="dashboard-panel-heading">
+                  <div><span className="panel-overline">INVESTMENT SERVICE STATUS</span><h3>No deposit service configured</h3></div>
+                  <ShieldCheck size={16} />
+                </div>
+                <div className="empty-activity">
+                  <span className="empty-activity-icon"><Clock3 size={18} /></span>
+                  <strong>No deposit submissions or pending reviews.</strong>
+                  <p>This preview has no payment address, transaction service, or secure backend. It cannot receive TXIDs, verify transactions, or approve deposits.</p>
+                </div>
               </section>
-              <section className="dashboard-panel admin-quick"><div className="panel-overline">QUICK ACTION</div><h3>Keep the platform moving.</h3><p>This admin panel is a visual prototype. Connect a secure backend before managing users, opportunities, or customer data.</p><button className="button button-red" onClick={onInquire}>Open live chat <ArrowRight size={15} /></button><button className="admin-return" onClick={onRegister}>Open sign-up preview <ArrowUpRight size={14} /></button></section>
-            </div>
+            </>
           ) : (
             <div className="dashboard-lower-grid">
               <section className="dashboard-panel welcome-panel"><div className="welcome-panel-glow" /><div className="panel-overline">A NEW WAY FORWARD</div><h3>Explore electric<br />mobility and energy.</h3><p>Discover vehicle galleries, home energy products and supervised-driving information.</p><button className="button button-red" onClick={onBack}>Explore the platform <ArrowRight size={15} /></button><span className="welcome-panel-tag">TESLAVOLT · CONCEPT</span></section>
@@ -1578,7 +1698,7 @@ function Footer({ onNavigate }: { onNavigate: (id: string) => void }) {
     ["Is TeslaVolt affiliated with Tesla?", "No. TeslaVolt is an independent concept experience and is not authorized by, affiliated with, or endorsed by Tesla, Inc."],
     ["Can I place an order or reserve a vehicle here?", "No. The enquiry form prepares a message for you to review in Chaport. It does not place an order, reserve a vehicle, or take payment."],
     ["Is Full Self-Driving fully autonomous?", "No. Full Self-Driving (Supervised) requires active driver supervision and does not make a vehicle fully autonomous."],
-    ["Is an investment service available?", "No investment service or offer is configured. The operating legal entity has not been provided, and no investment information is presented as verified."],
+    ["Is an investment service available?", "No investment service or offer is configured. Company registration, regulatory authorisation, investment terms, risk disclosures, and a complaint-handling process have not been provided. No deposits or investment records are accepted or displayed."],
   ];
 
   return (
@@ -1591,7 +1711,7 @@ function Footer({ onNavigate }: { onNavigate: (id: string) => void }) {
         <div className="footer-brand-col"><button className="brand footer-brand" onClick={() => onNavigate("top")}><span className="brand-mark"><TeslaVoltMark /></span><span>TESLA<span className="brand-light">VOLT</span></span></button><p>Electric ideas for a world<br />in motion.</p><span className="footer-location"><Globe2 size={13} /> A concept for the curious, everywhere.</span></div>
         <div className="footer-link-col"><span>EXPLORE</span><button onClick={() => onNavigate("vehicles")}>The vehicles</button><button onClick={() => onNavigate("energy")}>Home energy</button><button onClick={() => onNavigate("self-driving")}>Self-driving</button><button onClick={() => onNavigate("about")}>About TeslaVolt</button></div>
         <div className="footer-link-col"><span>CONNECT</span><button onClick={() => document.querySelector<HTMLButtonElement>(".chat-launcher")?.click()}>Customer support</button><button onClick={() => onNavigate("investment")}>Investment information</button><button onClick={() => onNavigate("top")}>Back to top <ArrowUpRight size={12} /></button></div>
-        <div className="footer-disclaimer"><span><ShieldCheck size={15} /> IMPORTANT INFORMATION</span><p>TeslaVolt is an independent concept website and is not affiliated with or endorsed by Tesla, Inc. No investment service, product or offer is available. The operating legal entity has not been supplied. Product enquiries do not create an order or reservation.</p></div>
+        <div className="footer-disclaimer"><span><ShieldCheck size={15} /> IMPORTANT INFORMATION</span><p>TeslaVolt is independent and is not affiliated with or endorsed by Tesla, Inc. No investment service, product, or offer is available. No company registration, regulatory authorisation, investment terms, risk disclosures, or complaint-handling process have been supplied. Do not send funds or TXIDs. Product enquiries do not create an order or reservation.</p></div>
       </div>
       <div className="footer-bottom"><span>© 2026 TESLAVOLT. A CONCEPT FOR WHAT'S NEXT.</span><span>BUILT FOR AN ELECTRIC FUTURE <i /> NOT AFFILIATED WITH TESLA, INC.</span><button onClick={() => onNavigate("top")}>BACK TO TOP <ArrowUpRight size={12} /></button></div>
     </footer>
